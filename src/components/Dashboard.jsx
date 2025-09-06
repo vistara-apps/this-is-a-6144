@@ -3,6 +3,8 @@ import { Menu, Search, Bell, Download } from 'lucide-react';
 import MetricsCard from './MetricsCard';
 import ChartCard from './ChartCard';
 import DataTable from './DataTable';
+import ExportButton from './ExportButton';
+import LoadingSpinner from './LoadingSpinner';
 
 const Dashboard = ({ onMenuClick }) => {
   return (
@@ -35,9 +37,15 @@ const Dashboard = ({ onMenuClick }) => {
             <button className="p-2 text-gray-400 hover:text-white transition-colors">
               <Bell className="w-6 h-6" />
             </button>
-            <button className="p-2 text-gray-400 hover:text-white transition-colors">
-              <Download className="w-6 h-6" />
-            </button>
+            <ExportButton 
+              data={[
+                { metric: 'Total Users', value: '24,567', change: '+12.5%' },
+                { metric: 'Revenue', value: '$45,678', change: '+8.2%' },
+                { metric: 'Conversion Rate', value: '3.24%', change: '-2.1%' },
+                { metric: 'Sessions', value: '12,543', change: '+15.3%' }
+              ]}
+              filename="dashboard-metrics"
+            />
           </div>
         </div>
       </header>
